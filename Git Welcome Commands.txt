@@ -1,0 +1,15 @@
+echo "# Data_Structure_Algorithm" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/AongCho880/Data_Structure_Algorithm.git
+git push -u origin main
+
+
+git remote add origin https://github.com/AongCho880/Data_Structure_Algorithm.git
+git branch -M main
+git push -u origin main
+
+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
+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

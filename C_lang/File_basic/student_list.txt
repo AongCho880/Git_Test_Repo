@@ -1,0 +1,6 @@
+Name			ID	Grade
+------------    	--      -----
+
+Aong Cho		880	A+
+Jahirul Islam		900	A
+Sujata Chk		700	A-
