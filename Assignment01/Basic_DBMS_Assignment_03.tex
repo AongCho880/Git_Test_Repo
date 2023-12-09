@@ -1,0 +1,153 @@
+\documentclass[11pt]{report} % Select font size and documentclass
+\usepackage[utf8]{inputenc} % Enables LaTeX to handle Unicode Characters directly 
+%\usepackage[utf8x]{inputenc}
+\usepackage[table]{xcolor} % For table cells color
+\usepackage{mathptmx} % Used to change the default font in math mode
+\usepackage{amsmath} % To write mathematical equation
+\usepackage{graphicx} % Used to include external graphics
+\usepackage{animate} % for animation
+\usepackage{subcaption} % To present multiple related images or tables within a single figure
+\usepackage{booktabs} % to creat high quality tables
+\usepackage{circuitikz} % to draw electrical circuit
+\usepackage{siunitx} % for si unit
+\usepackage{tikz} % to draaw flow chart
+\usetikzlibrary{shapes.geometric, arrows} % for flow chart
+\usepackage{float} % enhanced control over the placement of floating element
+\usepackage{enumerate} % to customize the appereance of lists
+\usepackage{enumitem}
+\usepackage[colorlinks,linkcolor=black, citecolor=blue, urlcolor=blue]{hyperref} % to enable the creation of hyperlinks
+\usepackage{geometry} % for margin specification
+\geometry{left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm} % set margin
+\usepackage{setspace} % set space between line
+\onehalfspacing
+% \usepackage{fontspec} % to utilize fonts installed on system directly
+% \setmainfont{Times New Roman}
+\usepackage{titlesec}
+\usepackage{fancyhdr} % to customize header and footer
+\usepackage{lipsum} % to generate dummy text
+\usepackage{lastpage} % page numbering
+\usepackage{etoolbox} % provides tools for modifying and patching LaTeX commands. 
+\usepackage{cite} % of citations and bibliographies in LaTeX.
+\usepackage{pifont} % for special symbol uses
+% Example: \ding{number}
+\usepackage{eso-pic}
+
+%%%%%%%%%%%%% Split document into multiple column %%%%%%%%%%%%
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+
+%%%%%%%%%%%%%%%%%% Boxed Text %%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Coding Style %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+%  numberstyle=\tiny\color{codegray},
+  numberstyle=false,
+  stringstyle=\color{codepurple},
+%  basicstyle=\ttfamily\small,
+  basicstyle=\fontsize{10}{10}\selectfont\ttfamily,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+%  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=4
+}
+
+\lstset{style=mystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lmodern} % to control font-size
+%% {\fontsize{font size}{base line strech} \selectfont}
+%% {\fontsize{40}{48} \selectfont Dynamic} % syntex to control fontsize.
+
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{hhline}
+\usepackage{pgf-pie}
+\usetikzlibrary{backgrounds}
+\usepackage{courier}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%%%%%%%%%%%% To Draw Figures %%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{hvlogos}
+
+%%%%%%% Matrix %%%%%%%%%%%%
+\usepackage{amsmath,blkarray,booktabs, bigstrut}
+
+
+%------------ For Cover Page -----------------
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic dummy publisher logo
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{stix} % Use the STIX fonts
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	                 TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+	\input{Chapters/CoverPage.tex}
+
+	
+	%%%%%%%%%%%%%%%%%%% Table of Contents  %%%%%%%%%%%%%%%%
+	\tableofcontents
+	\pagenumbering{\roman}	
+	
+	%%%%%%%%%%%%%%%%%% Page Numbering Style %%%%%%%%%%%%%%
+	\pagenumbering{arabic}
+	\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+	\fancypagestyle{main}{
+    	\fancyhf{} % clear all header and footer fields
+    	\renewcommand{\headrulewidth}{0pt} % remove header rule
+    	\renewcommand{\footrulewidth}{1pt} % set footerr rule
+    	\fancyfoot[L]{
+%    		\href{mailto:aongcho880@gmail.com}{\underline{Aong Cho Marma}}\\
+    		\fontsize{10}{10}\selectfont \leftmark
+    	} % chapter name at left footer
+    	\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}} % page number at center footer
+	}
+	
+	\pagestyle{main} % set the main page style
+	\setcounter{page}{1}
+	% Define style for equation numbers
+	\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	%%%%%%%%%%%%%%% Chapters %%%%%%%%%%%%%%%%%%%%
+	
+	\input{Chapters/Chapter_06.tex}
+	\input{Chapters/Chapter_07.tex}
+	
+	
+\end{document}
